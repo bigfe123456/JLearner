@@ -1,0 +1,16 @@
+*{
+	margin: 0;
+	padding: 0;
+	transition: all .3s;
+}
+body,.mui-content{
+	background-color: white;	
+}
+img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+[v-cloak] {
+  display: none;
+}

@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/jlearnerBar.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<link href="css/jlearner.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-off-canvas-wrap mui-draggable" id="mui-jlearner-main" v-cloak>
+		  	<aside class="mui-off-canvas-left">
+		    	<div class="mui-scroll-wrapper" style="background-color: rgb(111,181,170);">
+		    		<transition name="fade">
+			    		<div class="mui-user-sex-age-learned-words-address" v-show="isShowDetailedInfo">
+			    			<div class="mui-user-sex">
+			    				<span class="mui-badge mui-badge-warning">
+			    					<i class="iconfont icon-nan" v-show="user.sex === '男'"></i>
+			    					<i class="iconfont icon-nv" v-show="user.sex === '女'"></i>
+			    				</span>
+			    			</div>
+			    			<div class="mui-user-age">
+			    				<span class="mui-badge mui-badge-success">{{ age }}岁</span>
+			    			</div>
+			    			<div class="mui-user-learned-words">
+			    				<span class="mui-badge mui-badge-danger">{{ learnedWords }}词</span>
+			    			</div>
+			    			<div class="mui-user-address">
+			    				<span class="mui-badge mui-badge-purple">{{ address }}</span>
+			    			</div>
+			    		</div>
+			    	</transition>
+		      		<div class="mui-scroll" style="background-color: rgb(111,181,170);">
+	      			 	<div class="mui-user-info" v-if="isValidUser.isValid">
+		      			 	<div class="mui-user-photo-nickname">
+		      			 		<div class="mui-user-photo">
+		      			 			<img @tap="toggleDetailedInfo();" :src="user.photo" />
+		      			 		</div>
+		      			 		<div class="mui-user-nickname">
+		      			 			<div>
+	      			 					{{ user.nickname }}
+		      			 			</div>
+		      			 		</div>
+		      			 	</div>
+	      			 	</div>
+	      			 	<div class="mui-user-info" v-else>
+	      			 		<div class="mui-user-photo-nickname">
+		      			 		<div class="mui-user-photo">
+		      			 			<img :src="user.photo" />
+		      			 		</div>
+		      			 		<div class="mui-register-login">
+		      			 			<div>
+	      			 					<button class="mui-btn mui-btn-success mui-btn-outlined" @tap="loginJLearner();">登 录</button>
+	      			 					<button class="mui-btn mui-btn-success mui-btn-outlined" @tap="registerJLearner();">注 册</button>
+		      			 			</div>
+		      			 		</div>
+		      			 	</div>
+      			 		</div>
+	      			 	<div class="mui-jlearner-function">
+		      			 	<ul class="mui-table-view">
+							    <li class="mui-table-view-cell" @tap="openChangeUserInfo();">
+							        <a class="mui-navigate-right"><span class="iconfont icon-xiugai"></span> 修改个人信息</a>
+							    </li>
+							    <li class="mui-table-view-cell" @tap="translateJapanese();">
+							        <a class="mui-navigate-right"><span class="iconfont icon-riyufanyi"></span> 日语翻译</a>
+							    </li>
+							    <li class="mui-table-view-cell">
+						         	<span class="iconfont icon-yuyin"></span>
+						         	打开/关闭语音
+						         	<div class="mui-switch" :class="{'mui-active':isNeedVoice}" @toggle="changeIsNeedVoice($event);">
+								  		<div class="mui-switch-handle">
+								  		</div>
+									</div>
+							    </li>
+							    <li class="mui-table-view-cell">
+						         	<span class="iconfont icon-question"></span>
+						         	纯净背词模式
+						         	<div class="mui-switch" :class="{'mui-active':isNotNeedTest}" @toggle="changeIsNotNeedTest($event);">
+								  		<div class="mui-switch-handle">
+								  		</div>
+									</div>
+							    </li>
+							    <li class="mui-table-view-cell" @tap="openAboutJLearner();">
+							        <a class="mui-navigate-right"><span class="iconfont icon-guanyu"></span> 关于JLearner</a>
+							    </li>
+							</ul>
+	      			 	</div>
+		      		</div>
+		    		<div class="mui-jlearner-tips">
+  			 				<div @tap="openFeedback();" style="padding-left: 8px;">
+  			 					<span class="iconfont icon-fankuijianyi"></span> 反馈
+  			 				</div>
+  			 				<div @tap="cancelUserInfo();">
+  			 					<span class="iconfont icon-zhuxiao"></span> 退出
+  			 				</div>
+  			 				<div>
+  			 					<span class="mui-sina-weather-data">{{ currentTemperature }}</span>℃
+  			 				</div>
+      			 	</div>
+		    	</div>
+		  	</aside>
+		  	<div class="mui-inner-wrap">
+		    	<header class="mui-bar mui-bar-nav mui-jlearner-bar">
+		      		<a class="mui-action-menu mui-pull-left">
+		      			<div class="mui-bar-user-photo">
+		      				<img :src="user.photo" @tap="toggleOffCanvasWrap();" />
+		      			</div>
+		      		</a>
+		      		<h1 class="mui-title">{{ jlearnerTitle }}</h1>
+		      		<a href="#topPopover" class="mui-action-menu mui-pull-right" v-show="isNewWordsActive">
+		      			<div class="mui-new-words-filter">
+		      				<span class="iconfont icon-filter"></span>
+		      			</div>
+		      		</a>
+		      		<div id="topPopover" class="mui-popover" v-show="isNewWordsActive">
+						<div class="mui-popover-arrow"></div>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell" @tap="toggleNewWordsShow('japaneseN1');"><a href="#">N1生词<span class="mui-icon mui-icon-checkmarkempty mui-icon-filter-success" v-show="isShowNewWordsJapaneseN1"></span></a>
+							</li>
+							<li class="mui-table-view-cell" @tap="toggleNewWordsShow('japaneseN2');"><a href="#">N2生词<span class="mui-icon mui-icon-checkmarkempty mui-icon-filter-success" v-show="isShowNewWordsJapaneseN2"></span></a>
+							</li>
+							<li class="mui-table-view-cell" @tap="toggleNewWordsShow('japaneseN3');"><a href="#">N3生词<span class="mui-icon mui-icon-checkmarkempty mui-icon-filter-success" v-show="isShowNewWordsJapaneseN3"></span></a>
+							</li>
+							<li class="mui-table-view-cell" @tap="toggleNewWordsShow('japaneseN4');"><a href="#">N4生词<span class="mui-icon mui-icon-checkmarkempty mui-icon-filter-success" v-show="isShowNewWordsJapaneseN4"></span></a>
+							</li>
+							<li class="mui-table-view-cell" @tap="toggleNewWordsShow('japaneseN5');"><a href="#">N5生词<span class="mui-icon mui-icon-checkmarkempty mui-icon-filter-success" v-show="isShowNewWordsJapaneseN5"></span></a>
+							</li>
+						</ul>
+					</div>
+		    	</header>
+		    	<div class="mui-content mui-scroll-wrapper" v-show="isHomeActive">
+		      		<div class="mui-scroll" style="background-color: rgb(27,176,244);">
+		        		<div class="mui-home">
+		        			<div class="mui-canvas-problem-solve">
+	        	 				<canvas id="mui-start-interface" width="300" height="420"></canvas>
+		        			</div>
+		        			<div class="mui-start-button">
+			        			<button class="mui-btn mui-btn-block mui-btn-primary" @tap="startWordInterface();">开始背词吧</button>
+			        		</div>
+		        		</div>
+		        	</div>
+		        	<nav class="mui-bar mui-bar-tab">
+						<a class="mui-tab-item mui-active">
+							<span class="iconfont icon-home" :class="{'mui-icon-active':isHomeActive}" @tap="changeMain('home');"></span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="iconfont icon-mianxingtubiao1cikuyouhua" :class="{'mui-icon-active':isBooksActive}" @tap="changeMain('books');"></span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="iconfont icon-word" :class="{'mui-icon-active':isNewWordsActive}" @tap="changeMain('newWords');"></span>
+						</a>
+					</nav>
+		        </div>	
+	        	<div class="mui-content mui-scroll-wrapper" v-show="isBooksActive">
+		        	<div class="mui-scroll" @swipeup="changeBookUp();" @swipedown="changeBookDown();">
+		        		<div class="mui-books">
+		        			<div class="mui-book-prompt">
+		        				<p>&lt;&lt;{{ selectedBook.bookName }}&gt;&gt;共有<span class="mui-badge mui-badge-primary">{{ selectedBook.bookWordsCount }}</span>个词汇，你已经学习了该词书的
+		        					<span class="mui-badge mui-badge-success">{{ selectedBook.learnedWordsCount }}</span>
+		        					个词汇，还差<span class="mui-badge mui-badge-warning">{{ selectedBook.leaveWordsCount }}</span>
+		        					个词汇完成，其中生词有<span class="mui-badge mui-badge-danger">{{ selectedBook.newWordsCount }}</span>
+		        					个。
+		        				</p>
+		        			</div>		        			
+	        				<div class="mui-books-container">
+	        					<div class="mui-books-wrap" :style="{transform:bookTransform}">
+	        						<div class="mui-books-wrap-img wrap-img-1"></div>
+	        						<div class="mui-books-wrap-img wrap-img-2"></div>
+	        						<div class="mui-books-wrap-img wrap-img-3"></div>
+	        						<div class="mui-books-wrap-img wrap-img-4"></div>
+	        						<div class="mui-books-wrap-img wrap-img-5"></div>
+	        					</div>
+	        				</div>
+	        				<div class="mui-select-book">
+	        					<button id="change-current-book" data-loading-text="JLearner" class="mui-btn mui-btn-block mui-btn-primary" @tap='changeCurrentBook();'>选择该词书</button>
+	        				</div>
+		        		</div>
+		        	</div>
+		        	<nav class="mui-bar mui-bar-tab">
+						<a class="mui-tab-item mui-active">
+							<span class="iconfont icon-home" :class="{'mui-icon-active':isHomeActive}" @tap="changeMain('home');"></span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="iconfont icon-mianxingtubiao1cikuyouhua" :class="{'mui-icon-active':isBooksActive}" @tap="changeMain('books');"></span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="iconfont icon-word" :class="{'mui-icon-active':isNewWordsActive}" @tap="changeMain('newWords');"></span>
+						</a>
+					</nav>
+		        </div>
+		        <div class="mui-content mui-scroll-wrapper" v-show="isNewWordsActive">
+		        	<div class="mui-scroll">
+		        		<div class="mui-new-words">
+		        			<ul class="mui-table-view">
+		        				<li class="mui-table-view-cell" style="background-color: white;padding: 16px 20px;">
+		        					<p>共 <span class="mui-badge mui-badge-purple">{{ NewWordsShow.length }}</span> 词</p>
+		        				</li>
+		        			</ul>
+		        			<ul class="mui-table-view">
+							    <li class="mui-table-view-cell" @tap="toggleContent(index);" v-for="(newWord,index) of NewWordsShow" :class="{'mui-new-word-gray-action':newWord.isNewWordsChinese}">
+							    	<span class="mui-correct-headstand" v-show="newWord.isNewWordsChinese">{{ newWord.chinese }}</span>
+							    	<span v-show="!newWord.isNewWordsChinese">{{ newWord.japanese }}</span>
+							    	<i class="mui-icon mui-icon-search mui-new-word-search" v-show="newWord.isNewWordsChinese" @tap.stop="openNewWordInterface(newWord);"></i>
+							    </li>
+							</ul>
+		        		</div>
+		      		</div>
+		      		<nav class="mui-bar mui-bar-tab">
+						<a class="mui-tab-item mui-active">
+							<span class="iconfont icon-home" :class="{'mui-icon-active':isHomeActive}" @tap="changeMain('home');"></span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="iconfont icon-mianxingtubiao1cikuyouhua" :class="{'mui-icon-active':isBooksActive}" @tap="changeMain('books');"></span>
+						</a>
+						<a class="mui-tab-item">
+							<span class="iconfont icon-word" :class="{'mui-icon-active':isNewWordsActive}" @tap="changeMain('newWords');"></span>
+						</a>
+					</nav>
+		    	</div>  
+		  	</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/jlearner.js"></script>
+	</body>
+
+</html>

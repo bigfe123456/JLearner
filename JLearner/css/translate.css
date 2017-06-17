@@ -1,0 +1,32 @@
+.mui-bar .mui-input-row{
+	width: 83%;
+	display: inline-block;
+	margin: 2px 0;
+}
+.mui-translate-result{
+	padding: 20px 15px;
+}
+.mui-translate-result h4{
+	margin-bottom: 10px;
+}
+.mui-translate-result p{
+	margin-top: 8px;
+}
+.mui-translate-search-history{
+	padding: 0 15px;
+	margin-top: -10px;
+}
+.mui-translate-search-history section{
+	margin-top: 20px;
+}
+.mui-translate-search-history section span{
+	font-size: .8em;
+	margin: 5px 2px;
+}
+.mui-translate-history-delete{
+	float: right;
+	margin-right: 10px;
+}
+..mui-translate-search-history:after{
+	clear: both;
+}

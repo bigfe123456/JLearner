@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/wordTestInterface.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-content" id="mui-word-test">
+			<transition name="bounce">
+				<div class="mui-word-test" v-if="!!testTitle">
+					<div class="mui-word-test-title">
+						<h4>{{ testTitle }}</h4>
+					</div>
+					<div class="mui-word-test-option">
+						<p v-for="(option,index) in testOptions" @tap="selectedOptions(index);" :class="{'mui-test-selected-success':isSelectedSuccess[index],'mui-test-selected-error':isSelectedError[index]}">{{ option }}</p>
+					</div>
+				</div>
+			 </transition>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/wordTestInterface.js"></script>
+	</body>
+
+</html>

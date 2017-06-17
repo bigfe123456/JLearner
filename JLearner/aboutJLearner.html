@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/jlearnerBar.css" rel="stylesheet" />
+		<style type="text/css">
+			body,.mui-content{
+				background-color: white;
+			}
+			.mui-developer-photo{
+				width: 100px;
+				height: 100px;
+				margin: 2em auto 0.5em;
+				overflow: hidden;
+				text-align: center;
+			}
+			.mui-developer-name{
+				width: 100px;
+				margin: 0em auto 2.5em;
+				overflow: hidden;
+				text-align: center;
+			}
+			.mui-developer-photo img{
+				display: inline-block;
+				width: 100px;
+				height: 100px;
+/*				border-radius: 50%;*/
+				background-color: white;
+			}
+			.mui-developer-name h4,.mui-developer-name h6{
+				display: inline-block;
+			}
+			.mui-developer-contact{
+				width: 300px;
+				margin: 0 auto;
+			}
+			.mui-developer-contact section{
+				padding: 1em 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-jlearner-bar">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">关于JLearner</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="mui-developer-photo">
+		    	<img src="imgs/logo.png" />
+		    </div>
+		     <div class="mui-developer-name">
+		     	<h4>JLearner</h4>
+		     	<h6>v1.2.1.0303</h6>
+		     </div>
+		     <div class="mui-developer-contact">
+		     	<section>
+		     		 <p>JLearner由murakami开发的，专为日语学习爱好者设计的超实用日语学单词APP。</p>
+		     		 <p>你想要更高效的学习日语单词吗？</p>
+		     		 <p>你想要纯正的单词发音吗？</p>
+		     		 <p>你想要专属日语学单词APP吗？</p>
+		     		 <p>你想要简约无广告的APP吗？</p>
+		     		 <p>来JLearner吧，这里有你想要的一切。</p>
+		     	</section>
+		     </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				beforeback: function(){
+					//获得列表界面的webview
+					var webview = plus.webview.getWebviewById('jlearner.html');
+					//触发列表界面的自定义事件（refresh）,从而进行数据刷新
+					mui.fire(webview,'drawCavasFromRegisterOrLogin');
+					//返回true，继续页面关闭逻辑
+					return true;
+				}
+			});
+		</script>
+	</body>
+
+</html>

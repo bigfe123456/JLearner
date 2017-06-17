@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<link href="css/wordInterface.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-content" id="mui-new-word-interface">
+			<div class="mui-word-page" v-if='currentNewWord'>
+				<div class="mui-word">
+					<p class="mui-word-japanese">
+						{{ currentNewWord.japanese }}
+						<span class="mui-badge mui-badge-purple">{{ currentNewWordIndex }}</span>
+					</p>
+					<p class="mui-word-pronun">
+						[{{ currentNewWord.pronun }}]&nbsp;&nbsp;<span class="iconfont icon-laba" @tap="playNewWordVoice();"></span>
+					</p>
+					<p class="mui-word-chinese">
+						{{ currentNewWord.chinese }}
+					</p>
+				</div>
+				<div class="mui-word-example">
+					<h5 class="mui-example-title">
+						例句
+					</h5>
+					<p class="mui-example-japanese">
+						{{ currentNewWord.exampleJapanese }}
+					</p>
+					<p class="mui-example-chinese">
+						{{ currentNewWord.exampleChinese }}
+					</p>
+				</div>
+			</div>
+			<nav class="mui-bar mui-bar-tab">
+			    <a class="mui-tab-item mui-active" :class="{'mui-tap-active':isNewWordsDeleted}">
+			        <span class="iconfont icon-shanchu" @tap="deleteFromNewWords();"></span>
+			    </a>
+			    <a class="mui-tab-item" :class="{'mui-tap-active':isFirstNewWord}">
+			        <span class="iconfont icon-shang" @tap="changeCurrentNewWordIndex_up();"></span>
+			    </a>
+			    <a class="mui-tab-item" :class="{'mui-tap-active':isLastNewWord}">
+			        <span class="iconfont icon-xia" @tap="changeCurrentNewWordIndex_down();"></span>
+			    </a>
+			</nav>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/newWordInterface.js"></script>
+	</body>
+
+</html>

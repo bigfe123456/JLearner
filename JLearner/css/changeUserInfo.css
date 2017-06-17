@@ -1,0 +1,55 @@
+body{
+	background-color: white;
+}
+.mui-save-settings{
+	padding-top: 13px;
+	padding-right: 11px;
+}
+.mui-table-view-cell{
+	padding: 20px;
+	font-size: 1.1em;
+}
+.mui-table-view-cell.mui-collapse .mui-collapse-content{
+	margin: 11px -20px -20px;
+	padding: 20px 26px;
+}
+.mui-content>.mui-table-view:first-child{
+	margin-top: 0;
+}
+.mui-arrow img{
+	display: inline-block;
+	margin: 20px;
+	width: 60px;
+	height: 60px;
+}
+.mui-current-user-photo,.mui-arrow,.mui-changed-user-photo{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+}
+.mui-current-user-photo img,.mui-changed-user-photo img{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: lightgray;
+}
+.mui-current-user-photo{
+	float: left;
+}
+.mui-changed-user-photo{
+	float: right;
+}
+.mui-current-user-photo:after{
+	clear: both;
+}
+.mui-changed-user-photo:after{
+	clear: both;
+}
+.mui-changed-state{
+	float: right;
+	margin-right: 1em;
+}
+.mui-failed{
+	color: red;
+}

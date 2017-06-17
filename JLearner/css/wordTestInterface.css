@@ -1,0 +1,69 @@
+html,body,.mui-content{
+	height: 100vh;
+	background-color: rgb(35,182,234);
+}
+.mui-content{
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.mui-word-test{
+	margin-top: -15vh;
+	text-align: center;
+}
+.mui-word-test-title h4{
+	color: white;
+	margin: 0;
+	padding: .2em;
+	font-size: 1.8em;
+}
+.mui-word-test-option{
+	margin-top: 3vh;
+}
+.mui-word-test-option p{
+	display: inline-block;
+	padding: .4em;
+	margin: 2vh 0;
+	width: 80vw;
+	background-color: white;
+	font-size: 1.2em;
+	line-height: 180%;
+	border-radius: 10px;
+}
+.mui-word-test-option p.mui-test-selected-error{
+	background-color: #DC143C;
+	color: white;
+}
+.mui-word-test-option p.mui-test-selected-success{
+	background-color: #66CDAA;
+	color: white;
+}
+.bounce-enter-active {
+  animation: bounce-in .4s;
+}
+.bounce-leave-active {
+  animation: bounce-out .4s;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}

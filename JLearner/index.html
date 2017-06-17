@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/basic.css" rel="stylesheet" />
+		<link href="css/index.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-jlearner-card-content" id="mui-jlearner-card-content" v-if="isShow">
+				<div class="mui-jlearner-card-japanese">
+					<p>{{ japaneseContent }}</p>
+				</div>
+				<div class="mui-jleaener-card-chinese">
+					<p>{{ chineseContent }}</p>
+				</div>
+				<div class="mui-jlearner-card-recommend">
+					<img src="imgs/recommend.jpg" />
+				</div>
+			</div>
+		    <div class="mui-jlearner-card-logo">
+		    	<img src="imgs/JLearner.png" />
+		    </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/index.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,123 @@
+.mui-jlearner-form .mui-input-row{
+	margin: 8px 2vw;
+	border: 1px solid rgb(244,244,244);
+	border-radius: 10px;
+	position: relative;
+}
+.mui-jlearner-form .mui-input-row-active{
+	border: 1px solid orange;
+}
+.mui-jlearner-form .mui-input-row-success{
+	border: 1px solid green;
+}
+.mui-jlearner-form .mui-input-row-error{
+	border: 1px solid red;
+}
+.mui-input-group:before,.mui-input-group:after, .mui-input-row:after{
+	display: none;
+}
+.mui-jlearner-form .mui-input-prompt{
+	border: 0;
+	border-radius: 0;
+	height: auto;
+	text-align: center;
+}
+.mui-input-prompt p{
+	display: inline-block;
+	color: red;
+	font-size: .7em;
+	text-align: center;
+	margin: 0;
+	border-bottom: 1px solid red;
+}
+.person-photo{
+	padding-top: 12px;
+	text-align: center;
+}
+.person-photo img{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: lightgray;
+}
+.mui-input-row i{
+	position: absolute;
+	z-index: 999;
+	top: 8.96px;
+    left: .5px;
+	color: rgb(166,166,166);
+}
+.person-sex{
+	text-align: center;
+}
+.person-sex-padding{
+	display: inline-block;
+	width: 30%;
+}
+.person-sex i{
+	display: inline-block;
+	width: 20%;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 2em;
+	padding: .5em;
+	margin: .5em 0;
+	border: 1px solid;
+	border-radius: 50%;
+}
+.alibaba-icon-man{
+	color: deepskyblue;
+}
+.alibaba-icon-woman{
+	color: pink;
+}
+.alibaba-icon-sex-active{
+	background-color: lightgray;
+}
+.person-birthday{
+	text-align: center;
+}
+.person-birthday button{
+	width: 90%;
+	display: inline-block;
+	border-radius: 10px;
+}
+.person-address{
+	text-align: center;
+}
+.person-address button{
+	width: 90%;
+	display: inline-block;
+	border-radius: 10px;
+}
+.mui-content-padded{
+	background-color: whitesmoke;
+	padding: .5em 0;
+	margin: 0;
+	text-align: center;
+}
+.mui-content-padded p{
+	font-size: .8em;
+	font-weight: bold;
+}
+.mui-content-padded p a{
+	font-size: .75em;
+	font-weight: normal;
+	font-style: italic;
+}
+.mui-content-padded button{
+	width: 90%;
+	display: inline-block;
+	border-radius: 20px;
+}
+.mui-btn-primary{
+	background-color: rgb(67,179,51);
+	border-color: rgb(67,179,51);
+}
+.mui-btn-primary:enabled:active,
+.mui-btn-primary.mui-active:enabled{
+	background-color: rgb(67,179,51);
+	border-color: rgb(67,179,51);
+	transform: scale(0.8);
+}

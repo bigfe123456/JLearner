@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/jlearnerBar.css" rel="stylesheet" />
+		<link href="css/cropper.min.css" rel="stylesheet" />
+		<link href="css/pictureHandle.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-jlearner-bar">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">头像裁剪</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="container">
+		    	<div class="wrapper">
+		    		<div class="wrapper-img">
+		    			<img id="cut-img" src="" />
+		    		</div>
+		    	</div>
+		    </div>
+		    <div class="mui-content-padded">
+		    	<div id="checkmarkempty" :class="{'checkmarkempty-active':isActive}" class="checkmarkempty-background">
+		    		<span @tap="completedPhoto();" class="mui-icon mui-icon-checkmarkempty"></span>
+		    	</div>
+		    </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/cropper.min.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/pictureHandle.js"></script>
+	</body>
+
+</html>

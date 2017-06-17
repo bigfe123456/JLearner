@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mui.picker.min.css" />
+		<link href="css/jlearnerBar.css" rel="stylesheet" />
+		<link href="css/jlearnerForm.css" rel="stylesheet" />
+		<link href="css/changeUserInfo.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="mui-change-user-info">
+			<header class="mui-bar mui-bar-nav mui-jlearner-bar">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">修改个人信息</h1>
+			    <a class="mui-action-menu mui-pull-right mui-save-settings" @tap="saveUserInfo();">保存</a>
+			</header>
+			<div class="mui-content">
+			      <ul class="mui-table-view"> 
+			        <li class="mui-table-view-cell mui-collapse">
+			            <a class="mui-navigate-right" href="#">修改个人头像</a>
+			            <div class="mui-collapse-content" style="text-align: center;">
+			                <div class="mui-current-user-photo">
+			                	<img :src="user.photo" @tap="changeUserPhoto();" />
+			                </div>
+			                <div class="mui-arrow" v-if="photo">
+			                	<img src="imgs/arrow.png" />
+			                </div>
+			                <div class="mui-changed-user-photo" v-if="photo">
+			                	<img :src="photo" @tap="confirmUserPhoto();" />
+			                </div>
+			            </div>
+			        </li>
+			        <li class="mui-table-view-cell mui-collapse">
+			            <a class="mui-navigate-right" href="#" @tap="resetInputState('nickname');">修改个人昵称<span class="mui-icon mui-icon-closeempty mui-changed-state mui-failed" v-if="isPromptNickname_LI"></span></a>
+			            <div class="mui-collapse-content">
+			                <div class="mui-show-nickname">
+			                	<p>当前昵称：<strong>{{ user.nickname }}</strong></p>
+			                </div>
+			                <form class="mui-input-group mui-jlearner-form">
+			                	<div class="mui-input-row" :class="{'mui-input-row-active':isActive.isNicknameActive,'mui-input-row-success':isNicknameSuccess,'mui-input-row-error':isNicknameError}">
+									<input id='nickname' v-model="nickname" @input="inputRowInput($event);" @focus="inputRowFocus($event);" @blur="inputRowBlur($event);" type="text" class="mui-input-clear mui-input" placeholder=" 请输入新用户昵称（3-16位字符）">
+									<i class="iconfont icon-denglu-nicheng"></i>
+								</div>
+								<div class="mui-input-row mui-input-prompt" v-if="isPromptNickname">
+									<p>你输入的用户昵称格式不正确或该用户昵称已注册。</p>
+								</div>
+			                </form>
+			            </div>
+			        </li>
+			        <li class="mui-table-view-cell mui-collapse">
+			            <a class="mui-navigate-right" href="#" @tap="resetInputState('password');">修改个人密码<span class="mui-icon mui-icon-closeempty mui-changed-state mui-failed" v-if="isPromptPassword_LI"></span></a>
+			            <div class="mui-collapse-content">
+			                <form class="mui-input-group mui-jlearner-form">
+			                	<div class="mui-input-row" :class="{'mui-input-row-active':isActive.isOldPasswordActive,'mui-input-row-success':isOldPasswordSuccess,'mui-input-row-error':isOldPasswordError}">
+									<input id='old-password' v-model="oldPassword" @input="inputRowInput($event);" @focus="inputRowFocus($event);" @blur="inputRowBlur($event);" class="mui-input-password mui-input" type="password" placeholder=" 输入原密码（8-20位字符）">
+									<i class="iconfont icon-mima"></i>
+								</div>
+								<div class="mui-input-row mui-input-prompt" v-if="isPromptOldPassword">
+									<p>你输入的原密码与服务器原密码不一致。</p>
+								</div>
+				            	<div class="mui-input-row" :class="{'mui-input-row-active':isActive.isNewPasswordActive,'mui-input-row-success':isNewPasswordSuccess,'mui-input-row-error':isNewPasswordError}">
+									<input id='new-password' v-model="newPassword" @input="inputRowInput($event);" @focus="inputRowFocus($event);" @blur="inputRowBlur($event);" class="mui-input-password mui-input" type="password" placeholder=" 输入新密码（8-20位字符）">
+									<i class="iconfont icon-mima"></i>
+								</div>
+								<div class="mui-input-row mui-input-prompt" v-if="isPromptNewPassword">
+									<p>你输入的密码格式不正确。密码格式：以字母开头，长度在8~20之间，只能包含字符、数字和下划线。</p>
+								</div>
+								<div class="mui-input-row" :class="{'mui-input-row-active':isActive.isNewPasswordConfirmActive,'mui-input-row-success':isNewPasswordConfirmSuccess,'mui-input-row-error':isNewPasswordConfirmError}">
+									<input id='new-password-confirm' v-model="newPasswordConfirm" @input="inputRowInput($event);" @focus="inputRowFocus($event);" @blur="inputRowBlur($event);" class="mui-input-password mui-input" type="password" placeholder=" 确认新密码（和新密码一致）">
+									<i class="iconfont icon-unie614"></i>
+								</div>
+								<div class="mui-input-row mui-input-prompt" v-if="isPromptNewPasswordConfirm">
+									<p>两次输入的密码不一致或密码格式不正确。</p>
+								</div>
+			                </form>
+			            </div>
+			        </li>
+			        <li class="mui-table-view-cell mui-collapse">
+			            <a class="mui-navigate-right" href="#">修改个人性别</a>
+			            <div class="mui-collapse-content" @tap="changeUserSex();">
+			                <div class="mui-show-sex">
+			                	<p>当前性别：<strong>{{ user.sex }}</strong></p>
+			                </div>
+			            </div>
+			        </li>
+			        <li class="mui-table-view-cell mui-collapse">
+			            <a class="mui-navigate-right" href="#">修改个人生日</a>
+			            <div class="mui-collapse-content" @tap="changeUserBirthday();">
+			                <div class="mui-show-birthday">
+			                	<p>当前生日：<strong>{{ user.birthday }}</strong></p>
+			                </div>
+			            </div>
+			        </li>
+			        <li class="mui-table-view-cell mui-collapse">
+			            <a class="mui-navigate-right" href="#">修改个人地址  </a>
+			            <div class="mui-collapse-content" @tap="changeUserAddress();">
+			                <div class="mui-show-address">
+			                	<p>当前地址：<strong>{{ user.address }}</strong></p>
+			                </div>
+			            </div>
+			        </li>
+			    </ul>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/mui.picker.min.js"></script>
+		<script src="js/city.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/changeUserInfo.js"></script>
+	</body>
+
+</html>

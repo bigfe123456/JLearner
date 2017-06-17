@@ -1,0 +1,360 @@
+body,.mui-content,.mui-content .mui-scroll{
+	background-color: white;
+}
+.mui-content .mui-scroll{
+	padding-bottom: 10.5vh;
+}
+[v-cloak] {
+  display: none;
+}
+.mui-off-canvas-left{
+	background-color: rgb(111,181,170);
+	color: white;
+}
+.mui-bar-user-photo{
+	padding-top: 7px;
+}
+.mui-bar-user-photo img{
+	display: inline-block;
+	height: 1.6em;
+	width: 1.6em;
+	border-radius: 50%;
+	background-color: lightgray;
+}
+.mui-new-words-filter{
+	padding-top: 12px;
+	padding-right: 2px;
+}
+.mui-new-words-filter span{
+	font-size: 1.3em;
+}
+.mui-bar-tab{
+	height: 10vh;
+}
+.mui-tab-item span{
+	padding: .2em .3em;
+	font-size: 1.5em;
+	color: rgb(146,146,146);
+	border: 1px solid;
+	border-radius: 50%;
+}
+.mui-bar-tab .mui-tab-item.mui-active{
+	color: rgb(146,146,146);
+}
+.mui-bar-tab .mui-tab-item .mui-icon-active{
+	color: rgb(67,179,51);
+}
+.mui-book-prompt{
+	margin-top: 0.5em;
+	/*text-align: center;*/
+}
+.mui-book-prompt p{
+	display: inline-block;
+	font-style: italic;
+	padding: .1em .5em;
+}
+.mui-book-prompt p span{
+	font-style: normal;
+}
+.mui-books-container{
+	width:148px; 
+	height:200px; 
+	margin: 4em auto 4.9em;
+	position: relative;	
+	perspective: 500px;	
+}
+.mui-books-wrap{
+	position:relative; 
+	width:148px; 
+	height:200px; 
+	transform-style: preserve-3d;
+	transition: transform 1s;
+}
+.mui-books-wrap-img{
+	width:148px; 
+	height:200px;
+	position:absolute;
+	backface-visibility: hidden; 
+}
+.wrap-img-1{
+	background: url(../imgs/japaneseN1.jpg) no-repeat;
+	background-size: cover;
+	transform: rotateY(0) rotateZ(90deg) translateZ(166px);
+}
+.wrap-img-2{
+	background: url(../imgs/japaneseN2.jpg) no-repeat;
+	background-size: cover;
+	transform: rotateY(72deg) rotateZ(90deg) translateZ(166px);
+}
+.wrap-img-3{
+	background: url(../imgs/japaneseN3.jpg) no-repeat;
+	background-size: cover;
+	transform: rotateY(144deg) rotateZ(90deg) translateZ(166px);
+}
+.wrap-img-4{
+	background: url(../imgs/japaneseN4.jpg) no-repeat;
+	background-size: cover;
+	transform: rotateY(216deg) rotateZ(90deg) translateZ(166px);
+}
+.wrap-img-5{
+	background: url(../imgs/japaneseN5.jpg) no-repeat;
+	background-size: cover;
+	transform: rotateY(288deg) rotateZ(90deg) translateZ(166px);
+}
+.mui-select-book{
+	text-align: center;
+}
+.mui-select-book button{
+	width: 90%;
+	display: inline-block;
+	border-radius: 20px;
+}
+.mui-btn-primary{
+	background-color: rgb(67,179,51);
+	border-color: rgb(67,179,51);
+}
+.mui-btn-primary:enabled:active,
+.mui-btn-primary.mui-active:enabled{
+	background-color: rgb(67,179,51);
+	border-color: rgb(67,179,51);
+	transform: scale(0.8);
+}
+.mui-table-view:before,.mui-table-view:after,.mui-table-view-cell:after{
+	display: none;
+}
+.mui-new-words .mui-table-view-cell{
+	background-color: white;
+}
+.mui-new-words .mui-table-view-cell.mui-active{
+	background-color: white;
+}
+.mui-new-words .mui-table-view-cell{
+	padding: 20px;
+	font-size: 1.1em;
+}
+.mui-new-word-search{
+	float: right;
+}
+.mui-new-word-search:after{
+	clear: both;
+}
+.mui-new-words .mui-table-view-cell.mui-new-word-gray-action{
+	background-color: rgb(248,248,248);
+}
+.mui-new-words .mui-table-view-cell.mui-new-word-gray-action.mui-active{
+	background-color: rgb(248,248,248);
+}
+.mui-home{
+	text-align: center;
+}
+.mui-canvas-problem-solve{
+	display: inline-block;
+	margin: 2em 0 0;
+	width: 300px;
+	height: 420px;
+	background-color: rgb(27,176,244);
+}
+.mui-start-button button{
+	margin: -35px 0;
+	width: 180px;
+	display: inline-block;
+	border-radius: 20px;
+}
+.mui-user-photo-nickname{
+	padding-top: 36px;
+}
+.mui-user-photo-nickname div{
+	display: inline-block;
+	height: 45px;
+}
+.mui-user-photo {
+	width: 18%;
+	padding-left: 8px;
+	float: left;
+}
+.mui-user-photo img{
+	width: 45px;
+	height: 45px;
+	display: block;
+	border-radius: 50%;
+	background-color: lightgray;
+}
+.mui-user-nickname,.mui-register-login{
+	width: 82%;
+	float: left;
+}
+.mui-user-nickname div{
+	width: 100%;
+	padding-top: 15px;
+	padding-left: 15px;
+	font-size: 25px;
+	line-height: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.mui-register-login div{
+	width: 100%;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+.mui-user-photo-nickname:after{
+	clear: both;
+}
+.mui-jlearner-function{
+	margin-top: 120px;
+}
+.mui-jlearner-function .mui-table-view .mui-table-view-cell{
+	background-color: rgb(111,181,170);
+}
+.mui-jlearner-function .mui-table-view .mui-table-view-cell .mui-active{
+	background-color: rgb(131,184,174);
+}
+.mui-jlearner-function .mui-table-view .mui-table-view-cell:nth-child(3) .mui-active{
+	background-color: #4cd964;
+}
+.mui-jlearner-function .mui-table-view .mui-table-view-cell:nth-child(4) .mui-active{
+	background-color: #4cd964;
+}
+.mui-jlearner-tips{
+	width: 100%;
+	position: absolute;
+	bottom: 1.3em;
+}
+.mui-jlearner-tips div{
+	display: inline-block;
+	width: 32%;
+}
+.mui-navigate-right:after, .mui-push-left:after, .mui-push-right:after{
+	color: white;
+}
+.mui-user-sex-age-learned-words-address{
+	position: absolute;
+	z-index: 6666;
+	width: 100%;
+}
+.mui-user-sex-age-learned-words-address div{
+	position: absolute;
+}
+.mui-user-sex{
+	top: 10px;
+	left: 24%;
+}
+.mui-user-sex span{
+	animation: sexanimate 1s infinite alternate;
+}
+.mui-user-age{
+	top: 30px;
+	left: 36%;
+}
+.mui-user-age span{
+	animation: ageanimate 1.6s infinite alternate;
+}
+.mui-user-learned-words{
+	top: 80px;
+	left: 33%;
+}
+.mui-user-learned-words span{
+	animation: learnedwordsanimate 1.4s infinite alternate;
+}
+.mui-user-address{
+	top: 110px;
+	left: 20%;
+}
+.mui-user-address span{
+	animation: addressanimate 1.2s infinite alternate;
+}
+@keyframes sexanimate{
+	from{
+		transform: translateX(0);
+	}
+	to{
+		transform: translateX(15px);
+	}
+}
+@keyframes ageanimate{
+	from{
+		transform: translateX(0);
+	}
+	to{
+		transform: translateX(13px);
+	}
+}
+@keyframes learnedwordsanimate{
+	from{
+		transform: translateX(0);
+	}
+	to{
+		transform: translateX(16px);
+	}
+}
+@keyframes addressanimate{
+	from{
+		transform: translateX(0);
+	}
+	to{
+		transform: translateX(19px);
+	}
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .8s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+}
+.mui-register-login div button{
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-right: 10px;
+}
+.mui-register-login .mui-btn-outlined{
+    background-color: rgb(111,181,170);
+	border-color: white;
+	border-radius: 15px;
+}
+.mui-register-login .mui-btn-outlined.mui-btn-success{
+	color: white;
+}
+.mui-register-login .mui-btn-outlined.mui-btn-success:enabled:active{
+	background-color: transparent;
+	border-color: white;
+	color: white;
+	transform: scale(.8);
+}
+.mui-plus .plus{
+	display: inline;
+}
+
+.plus{
+	display: none;
+}
+
+#topPopover {
+	position: fixed;
+	top: 16px;
+	right: 6px;
+	background-color: white;
+}
+#topPopover ul{
+	background-color: white;
+	overflow: hidden;
+}
+#topPopover .mui-popover-arrow {
+	left: auto;
+	right: 6px;
+}
+.mui-popover {
+	width: 200px;
+}
+.mui-icon-filter-success{
+	line-height: 21px;
+	color: green;
+	margin-top: -11px;
+	float: right;
+}
+.mui-backdrop{
+	display: none;
+}
+.mui-sina-weather-data{
+	font-size: 2.5em;
+}

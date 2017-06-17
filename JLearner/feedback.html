@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/jlearnerBar.css" rel="stylesheet" />
+		<style type="text/css">
+			body,.mui-content{
+				background-color: white;
+			}
+			.mui-developer-photo{
+				width: 100px;
+				height: 100px;
+				margin: 2em auto 0.5em;
+				overflow: hidden;
+				text-align: center;
+			}
+			.mui-developer-name{
+				width: 100px;
+				margin: 0em auto 2.5em;
+				overflow: hidden;
+				text-align: center;
+			}
+			.mui-developer-photo img{
+				display: inline-block;
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				background-color: lightgray;
+			}
+			.mui-developer-name h4{
+				display: inline-block;
+			}
+			.mui-developer-contact{
+				width: 300px;
+				margin: 0 auto;
+			}
+			.mui-developer-contact section{
+				padding: 1em 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-jlearner-bar">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">反馈方式</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="mui-developer-photo">
+		    	<img src="imgs/JLearner_Leader.jpg" />
+		    </div>
+		     <div class="mui-developer-name">
+		     	<h4>村上けんぞ</h4>
+		     </div>
+		     <div class="mui-developer-contact">
+		     	<section>
+		     		<p><strong>JLearner官网：</strong><a>http://murakami.online/JLearner/JLearner_website/index.html</a></p>
+		     		<p><strong>联系电话：</strong><b>+86 181 9126 3056</b></p>
+		     		<p><strong>联系邮箱：</strong><b>w18191263056@yahoo.co.jp</b></p>
+		     		<p><strong>联系地址：</strong><b>日本 京都ICP番号 11002373-1</b></p>
+		     	</section>
+		     </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				beforeback: function(){
+					//获得列表界面的webview
+					var webview = plus.webview.getWebviewById('jlearner.html');
+					//触发列表界面的自定义事件（refresh）,从而进行数据刷新
+					mui.fire(webview,'drawCavasFromRegisterOrLogin');
+					//返回true，继续页面关闭逻辑
+					return true;
+				}
+			});
+		</script>
+	</body>
+
+</html>

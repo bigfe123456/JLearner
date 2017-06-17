@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mui.picker.min.css" />
+		<link rel="stylesheet" href="css/jlearnerBar.css" />
+		<link rel="stylesheet" href="css/jlearnerForm.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-jlearner-bar">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">注册JLearner</h1>
+		</header>
+		<div class="mui-content" id="jlearner-form">
+			<form class="mui-input-group mui-jlearner-form">
+				<div class="mui-input-group">
+					<div class="person-photo">
+						<img @tap="selectedPhoto();" :src="userPhoto" />
+					</div>
+				</div>
+				<div class="mui-input-row" :class="{'mui-input-row-active':isActive.isPhoneNumberActive,'mui-input-row-success':isPhoneNumberSuccess,'mui-input-row-error':isPhoneNumberError}">
+					<input id='phone-number' @input="inputRowInput($event);" @focus="inputRowFocus($event);" @blur="inputRowBlur($event);" type="text" v-model="phoneNumber" class="mui-input" placeholder=" 请输入手机号码">
+					<i class="iconfont icon-dianhuahaoma"></i>
+				</div>
+				<div class="mui-input-row mui-input-prompt" v-if="isPromptPhoneNumber">
+					<p>你输入的手机号码格式不正确或该手机号已注册。</p>
+				</div>
+				<div class="mui-input-row" :class="{'mui-input-row-active':isActive.isNicknameActive,'mui-input-row-success':isNicknameSuccess,'mui-input-row-error':isNicknameError}">
+					<input id='nickname' @input="inputRowInput($event);" @focus="inputRowFocus($event);" @blur="inputRowBlur($event);" type="text" v-model="nickname" class="mui-input" placeholder=" 请输入用户昵称（3-16位字符）">
+					<i class="iconfont icon-denglu-nicheng"></i>
+				</div>
+				<div class="mui-input-row mui-input-prompt" v-if="isPromptNickname">
+					<p>你输入的用户昵称格式不正确或该用户昵称已注册。</p>
+				</div>
+				<div class="mui-input-row" :class="{'mui-input-row-active':isActive.isPasswordActive,'mui-input-row-success':isPasswordSuccess,'mui-input-row-error':isPasswordError}">
+					<input id='password' @focus="inputRowFocus($event);" @blur="inputRowBlur($event);" type="password" v-model="password" class="mui-input-password mui-input" placeholder=" 设置密码（8-20位字符）">
+					<i class="iconfont icon-mima"></i>
+				</div>
+				<div class="mui-input-row mui-input-prompt" v-if="isPromptPassword">
+					<p>你输入的密码格式不正确。密码格式：以字母开头，长度在8~20之间，只能包含字符、数字和下划线。</p>
+				</div>
+				<div class="mui-input-row" :class="{'mui-input-row-active':isActive.isPasswordConfirmActive,'mui-input-row-success':isPasswordConfirmSuccess,'mui-input-row-error':isPasswordConfirmError}">
+					<input id='password-confirm' @focus="inputRowFocus($event);" @blur="inputRowBlur($event);" type="password" v-model="passwordConfirm" class="mui-input-password mui-input" placeholder=" 确认密码（和设置密码一致）">
+					<i class="iconfont icon-unie614"></i>
+				</div>
+				<div class="mui-input-row mui-input-prompt" v-if="isPromptPasswordConfirm">
+					<p>两次输入的密码不一致或密码格式不正确。</p>
+				</div>
+				<div class="mui-input-group">
+					<div class="person-sex">
+						<i class="iconfont icon-nan alibaba-icon-man" @tap="selectedSex('男');" :class="{'alibaba-icon-sex-active':isMan}"></i>
+						<div class="person-sex-padding"></div>
+						<i class="iconfont icon-nv alibaba-icon-woman" @tap="selectedSex('女')" :class="{'alibaba-icon-sex-active':isWoman}"></i>
+					</div>
+				</div>
+				<div class="mui-input-group">
+					<div class="person-birthday">
+						<button @tap="selectedBirthday();" class="btn mui-btn mui-btn-block">{{ birthday }}</button>
+					</div>
+				</div>
+				<div class="mui-input-group">
+					<div class="person-address">
+						<button @tap="selectedAddress();" class="mui-btn mui-btn-block" type='button'>{{ address }}</button>
+						<div id='cityResult3' class="ui-alert"></div>
+					</div>
+				</div>
+			</form>
+			<div class="mui-content-padded">
+				<p>注册代表你已阅读并同意<a href="#" @click.prevent>&nbsp;&nbsp;JLearner用户协议</a></p>
+				<button id='register' type="button" data-loading-text="JLearner" class="mui-btn mui-btn-block mui-btn-primary" @tap="registerJLearner();">注 册</button>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/mui.picker.min.js"></script>
+		<script src="js/city.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jlearnerForm.js"></script>
+	</body>
+
+</html>

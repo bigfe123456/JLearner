@@ -1,0 +1,60 @@
+html,body,.mui-content{
+	width: 100%;
+	height: 100%;
+}
+.cropper-view-box{
+	border-radius: 50%;
+	outline: 0;
+}
+.mui-content{
+	position: fixed;
+}
+.container{
+	background-color: #000000;
+	width: 100%;
+	height: 100%;
+	display: table;
+	text-align: center;
+}
+.wrapper{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.wrapper-img{
+	margin-top: -35%;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+.wrapper-img img{
+	width: 100%;
+}
+.mui-content-padded{
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+}
+.checkmarkempty-background{
+	height: 6vh;
+	width: 6vh;
+	border: 1px solid rgb(67,179,51);
+	background-color: cornsilk;
+	border-radius: 50%;
+	display: table;
+	text-align: center;
+	float: right;
+	margin: .5em 1.5em;
+}
+.checkmarkempty-active{
+	background-color: #F0AD4E;
+}
+.checkmarkempty-background span{
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 2em;
+	color: rgb(67,179,51);
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/basic.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<link href="css/jlearnerBar.css" rel="stylesheet" />
+		<link href="css/translate.css" rel="stylesheet" />
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="mui-translate">
+			<header class="mui-bar mui-bar-nav mui-jlearner-bar">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		        <div class="mui-input-row">
+					<input @focus="changeIsTranslateSuccess();" type="search" v-model="q" class="mui-input-clear mui-input" placeholder="请输入翻译原文">
+				</div>
+				<span class="mui-icon mui-icon-search mui-pull-right" @tap="getResultFromBaidu();"></span>
+		    </header>
+		    <div class="mui-content">
+		    	<div class="mui-translate-result">
+		    		<h4>翻译结果</h4>
+		    		<p v-if="isTranslateSuccess">{{ result }}</p>
+		    	</div>
+		    	<div class="mui-translate-search-history">
+		    		<h5>搜索历史<span class="iconfont icon-shanchu mui-translate-history-delete" @tap="deleteSearchHistory();"></span></h5>
+		    		<section>
+			    		<span v-for="history in translateHistory" class="mui-badge" :class="{'mui-badge-primary':history.badgeColorIndex === 1,'mui-badge-success':history.badgeColorIndex === 2,'mui-badge-warning':history.badgeColorIndex === 3,'mui-badge-danger':history.badgeColorIndex === 4,'mui-badge-purple':history.badgeColorIndex === 5}" @tap="setQ(history.searchKey);">{{ history.searchKey }}</span>
+			    	</section>
+		    	</div>
+		    </div>
+	    </div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/translate.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,89 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	perspective: 1800px;
+}
+body,.mui-content{
+	height: 100vh;
+	background-color: rgb(35,182,234);
+}
+.mui-word-page{
+	width:100%;
+	height:90vh;
+	background-color: rgb(35,182,234);
+}
+.mui-bar-tab{
+	background-color: white;
+	height: 10vh;
+	
+}
+.mui-tab-item span{
+	background-color: white;
+	padding: .2em .3em;
+	font-size: 1.5em;
+	color: rgb(193,193,193);
+}
+.mui-bar-tab .mui-tab-item.mui-active{
+	color: rgb(193,193,193);
+}
+.mui-word-page *{
+	color: white;
+}
+.mui-word{
+	padding: 2em 1em;
+}
+.mui-word-japanese{
+	margin: 5vh 0 0;
+	font-size: 2em;
+}
+.mui-word-japanese span{
+	display: inline-block;
+	width: 10vw;
+	text-align: center;
+	float: right;
+	margin-right: .5vh;
+	color: white;
+}
+.mui-word-japanese:after{
+	clear: both;
+}
+.mui-word-pronun{
+	margin: 2vh 0 0;
+	font-size: 1.1em;
+}
+.mui-word-chinese{
+	margin: 5vh 0 0;
+}
+.mui-word-example{
+	margin: 7vh auto 0;
+	width: 90%;
+	background-color: whitesmoke;
+	padding: 2em 1em;
+	border-radius: 15px;
+}
+.mui-example-title{
+	color: black;
+	font-size: .9em;
+	font-style: italic;
+}
+.mui-example-japanese{
+	color: black;
+	margin: 2vh 0 0;
+	font-size: 1.3em;
+}
+.mui-example-chinese{
+	color: black;
+	margin: 2vh 0 0;
+	font-size: 1.1em;
+}
+.mui-tap-active span{
+	color: whitesmoke;
+}
+.mui-tab-item span.icon-start{
+	color: rgb(67,179,51);
+}
+.mui-bar-tab .mui-tab-item span.icon-start.mui-active{
+	color: rgb(67,179,51);
+}

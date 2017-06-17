@@ -1,0 +1,20 @@
+.mui-jlearner-bar{
+	height: 71px;
+	padding-top: 1.2em;
+	z-index: 1111;
+}
+.mui-jlearner-bar a{
+	color: rgb(140,140,140);
+}
+.mui-bar .mui-icon{
+	font-size: 1.6em;
+	padding-top: 9px;
+    padding-bottom: 9px;
+}
+.mui-jlearner-bar h1{
+	color: rgb(56,56,56);
+	font-size: 1.2em;
+}
+.mui-bar-nav~.mui-content{
+	padding-top: 71px;
+}
