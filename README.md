@@ -15,7 +15,7 @@ This is the entire client file source.
 
 [JLearner Official website](http://murakami.online/JLearner/JLearner_website/index.html)
 
-> write by murakami,the personal website is [murakami](http://murakami.online/)
+> write by murakami,the personal website is [murakami kennzo](http://murakami.online/)
 
 
 
